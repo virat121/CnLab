@@ -1,0 +1,58 @@
+cd Desktop
+  781  ls
+  782  cd ns-allinone-2.35/
+  783  cd ns-2.35/
+  784  cd indep-utils/
+  785  cd cmu-scen-gen/
+  786  ns cbrgen.tcl
+  787  ns cbrgen.tcl -type tcp -nn 25 -seed 1 -mc 10 -rate 20
+  788  ns cbrgen.tcl -type tcp -nn 25 -seed 1 -mc 10 -rate 20 >s1
+  789  ns cbrgen.tcl -type tcp -nn 25 -seed 1 -mc 10 -rate 20 > s1
+  790  ls
+  791  cd setdest
+  792  setdest
+  793  setdest -v 1 -n 25 -p 10 -M 20 -t 100 -x 500 -y 500
+  794  setdest -v 1 -n 25 -p 10 -M 20 -t 100 -x 500 -y 500 > m1
+  795  clear
+  796  cd ..
+  797  ls
+  798  cd ..
+  799  ls
+  800  clear
+  801  ls
+  802  cd ns-allinone-2.35/
+  803  cd ns-2.35/
+  804  cd indep-utils/
+  805  cd cmu-scen-gen/
+  806  ls
+  807  ns cbrgen.tcl
+  808  ns cbrgen.tcl -type tcp -nn 25 -seed 1 -mc 10 -rate 1
+  809  ns cbrgen.tcl -type tcp -nn 25 -seed 1 -mc 10 -rate 1 > stat-m3
+  810  ls
+  811  cd ..
+  812  ls
+  813  setdest
+  814  setdest -v 1 -n 25 -p 10 -M 20 -t 100 -x 500 -y 500
+  815  setdest -v 1 -n 25 -p 10 -M 20 -t 100 -x 500 -y 500 > mob-m3
+  816  ls
+  817  cd ..
+  818  ls
+  819  cd s
+  820  pwd
+  821  gedit sss.tcl
+  822  ns sss.tcl
+  823  nam 003.nam
+  824  pwd
+  825  ls
+  826  cd Desktop
+  827  cd s
+  828  ls
+  829  ns sss.tcl
+  830  ls
+  831  nam 003.nam
+  832  gedit sss.tcl
+  833  ns sss.tcl
+  834  nam 003.nam
+  835  hisotry
+  836  history
+

@@ -1,0 +1,92 @@
+Extract all-in-one tar file in program folder
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8$ cd ns-allinone-2.35/
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35$ cd indep-utils/
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils$ ls
+cmu-scen-gen  dosdbell  dosreduce  model-gen  propagation  webtrace-conv
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils$ cd cmu-scen-gen/
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ ls
+cbrgen.tcl  README  setdest
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ ns cbrgen.tcl 
+
+usage: cbrgen.tcl [-type cbr|tcp] [-nn nodes] [-seed seed] [-mc connections] [-rate rate]
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ ns cbrgen.tcl -type tcp -nn 25 -seed 1 -mc 10 -rate 1
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ ns cbrgen.tcl -type tcp -nn 25 -seed 1 -mc 10 -rate 1 > stat
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ ls
+cbrgen.tcl  README  setdest  stat
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ cd ..
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils$ ls
+cmu-scen-gen  dosdbell  dosreduce  model-gen  propagation  webtrace-conv
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils$ setdest
+
+usage:
+
+<original 1999 CMU version (version 1)>
+ setdest	-v <1> -n <nodes> -p <pause time> -M <max speed>
+		-t <simulation time> -x <max X> -y <max Y>
+
+OR
+<modified 2003 U.Michigan version (version 2)>
+ setdest	-v <2> -n <nodes> -s <speed type> -m <min speed> -M <max speed>
+		-t <simulation time> -P <pause type> -p <pause time> -x <max X> -y <max Y>
+		(Refer to the script files make-scen.csh and make-scen-steadystate.csh for detail.) 
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils$ setdest -v 1 -n 25 -p 10 -M 20 -t 100 -x 500 -y 500
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils$ setdest -v 1 -n 25 -p 10 -M 20 -t 100 -x 500 -y 500 > mob
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils$ ls
+cmu-scen-gen  dosdbell  dosreduce  mob  model-gen  propagation  webtrace-conv
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35/indep-utils$ cd ..
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35/ns-2.35$ cd ..
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8/ns-allinone-2.35$ cd ..
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8$ gedit prog8.tcl
+
+Move stat and mob file to program folder
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8$ ns prog8.tcl
+num_nodes is set 25
+warning: Please use -channel as shown in tcl/ex/wireless-mitf.tcl
+INITIALIZE THE LIST xListHead
+Loading connection file...
+starting simulation...
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+SORTING LISTS ...DONE!
+NS EXITING...
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8$ nam prog8.nam
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8$ gedit prog8.tcl
+
+Uncomment the mob line at both places in the code
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8$ ns prog8.tcl
+num_nodes is set 25
+warning: Please use -channel as shown in tcl/ex/wireless-mitf.tcl
+INITIALIZE THE LIST xListHead
+Loading scenario file...
+Loading connection file...
+starting simulation...
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+SORTING LISTS ...DONE!
+NS EXITING...
+
+student@student-HP-Pro-Tower-280-G9-PCI-Desktop-PC:~/Program8$ nam prog8.nam
+Cannot connect to existing nam instance. Starting a new one...

@@ -98,7 +98,7 @@ $ns color 1 red
 $ns color 2 green
 
 $n5 label "receiver1"
-$n5 color blue
+$n5 color blue`
 
 $n6 label "receiver2"
 $n6 color blue
