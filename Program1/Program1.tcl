@@ -20,11 +20,10 @@ set udp1 [new Agent/UDP]
 $ns attach-agent $n1 $udp1
 set null1 [new Agent/Null]
 $ns attach-agent $n3 $null1
-
 $ns connect $udp1 $null1
+
 set cbr1 [new Application/Traffic/CBR]
 $cbr1 attach-agent $udp1
-
 $ns at 1.1 "$cbr1 start"
 
 set tcp [new Agent/TCP]
