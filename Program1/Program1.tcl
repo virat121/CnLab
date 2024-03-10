@@ -30,8 +30,8 @@ set tcp [new Agent/TCP]
 $ns attach-agent $n0 $tcp
 set sink [new Agent/TCPSink]
 $ns attach-agent $n3 $sink
-
 $ns connect $tcp $sink
+
 set ftp [new Application/FTP]
 $ftp attach-agent $tcp
 
